@@ -13,6 +13,7 @@ class TestAddBook(unittest.TestCase):  # Ran 4 tests in 0.009s
     def test_add_book(self, mock_add_book):
         mock_book_id = 123
         mock_add_book.return_value = mock_book_id
+        
         response = self.client.post('/add_book', json={'title': 'Test Book'})
 
         mock_add_book.assert_called_once_with('Test Book')
